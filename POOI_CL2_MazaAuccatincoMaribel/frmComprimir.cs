@@ -32,7 +32,7 @@ namespace POOI_CL2_MazaAuccatincoMaribel
         {
             tsNuevo_Click(sender, e);
             OpenFileDialog op = new OpenFileDialog();
-            op.Filter = "Archivo de Texto|*.txt|Archivo SQL|*.sql";
+            op.Filter = "Archivo de Texto|*.txt";
             if (op.ShowDialog() == DialogResult.OK)
             {
                 StreamReader dr = new StreamReader(op.FileName);
@@ -44,7 +44,7 @@ namespace POOI_CL2_MazaAuccatincoMaribel
         private void tsGuardar_Click(object sender, EventArgs e)
         {
             SaveFileDialog sv = new SaveFileDialog();
-            sv.Filter = "Archivo de Texto|*.txt|Archivo SQL|*.sql";
+            sv.Filter = "Archivo de Texto|*.txt";
             if (sv.ShowDialog() == DialogResult.OK)
             {
                 StreamWriter sw = new StreamWriter(sv.FileName);
@@ -56,7 +56,7 @@ namespace POOI_CL2_MazaAuccatincoMaribel
         private void tsComprimir_Click(object sender, EventArgs e)
         {
             SaveFileDialog sv = new SaveFileDialog(); //abre la  ventana para guardar
-            sv.Filter = "Archivo comprimido ZIP | *.zip |Archivo comprimido RAR | *.rar";
+            sv.Filter = "Archivo comprimido ZIP | *.zip ";
             if (sv.ShowDialog() == DialogResult.OK)
             {  //si guarda
                 ////Enviando la informacion en un espacio de memoria
@@ -81,7 +81,7 @@ namespace POOI_CL2_MazaAuccatincoMaribel
             ///Para mostrar un archivo que ya fue comprimido en el txtEditor
 
             OpenFileDialog op = new OpenFileDialog();
-            op.Filter = "Archivo ZIP | *.zip |Archivo RAR | *.rar  ";
+            op.Filter = "Archivo ZIP | *.zip ";
             if (op.ShowDialog() == DialogResult.OK)
             {
                 FileStream fs = new FileStream(op.FileName, FileMode.Open);

@@ -52,10 +52,19 @@
     <Compile Include="frmComprimir.Designer.cs">
       <DependentUpon>frmComprimir.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistroVendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistroVendedores.Designer.cs">
+      <DependentUpon>frmRegistroVendedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmComprimir.resx">
       <DependentUpon>frmComprimir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroVendedores.resx">
+      <DependentUpon>frmRegistroVendedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
