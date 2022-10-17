@@ -17,7 +17,7 @@ namespace POOI_CL2_MazaAuccatincoMaribel
 {
     public partial class frmRegistroVendedores : Form
     {
-        int n;
+        int n = 0000; //variable global
         ArrayList aVendedores = new ArrayList();
         public frmRegistroVendedores()
         {
@@ -56,11 +56,23 @@ namespace POOI_CL2_MazaAuccatincoMaribel
                 div_vend = cboDivision.Text,
             };
 
-            //Enviar un empleado al arrayList 
+            //Enviamos el vendedor al arrayList 
             aVendedores.Add(objV);
-            //Imprimir
             listadoVendedores();
+            limpiarInputs();
             generarCodigo();
+
+        }
+
+        void limpiarInputs() 
+        {
+            txtCodigo.Clear();
+            txtNombre.Clear();
+            txtDireccion.Clear();
+            dtFechaContrato.Value = DateTime.Now; 
+            cboDivision.SelectedIndex = -1;
+            txtNombre.Focus();
+            
         }
 
         void listadoVendedores()
@@ -75,10 +87,37 @@ namespace POOI_CL2_MazaAuccatincoMaribel
                 fila.SubItems.Add(ven.div_vend);
                 lvVendedores.Items.Add(fila);
             }
-}
+        }
+
+        /// Modificar
+        private void lvVendedores_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewItem item = lvVendedores.GetItemAt(e.X, e.Y);
+
+            txtCodigo.Text = item.Text;
+            txtNombre.Text = item.SubItems[1].Text;
+            txtDireccion.Text = item.SubItems[2].Text;
+            dtFechaContrato.Value = DateTime.Parse(item.SubItems[3].Text);
+            cboDivision.Text = item.SubItems[4].Text;
+        }
+
+
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            foreach (Vendedor ven in aVendedores)
+            {
+                if (ven.cod_vend == int.Parse(txtCodigo.Text))
+                {
+                    ven.nombre_vend = txtNombre.Text;
+                    ven.direcc_vend = txtDireccion.Text;
+                    ven.fecContrato_vend = dtFechaContrato.Value;
+                    ven.div_vend = cboDivision.Text; 
+                    break;
+                }
+            }
+            listadoVendedores();
+            limpiarInputs();
+           
         }
 
         private void btnSerializar_Click(object sender, EventArgs e)
@@ -90,5 +129,7 @@ namespace POOI_CL2_MazaAuccatincoMaribel
         {
 
         }
+
+       
     }
 }

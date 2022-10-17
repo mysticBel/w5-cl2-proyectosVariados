@@ -41,13 +41,13 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lvVendedores = new System.Windows.Forms.ListView();
-            this.btnSerializar = new System.Windows.Forms.Button();
-            this.btnDeserializar = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnSerializar = new System.Windows.Forms.Button();
+            this.btnDeserializar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -184,26 +184,7 @@
             this.lvVendedores.TabIndex = 9;
             this.lvVendedores.UseCompatibleStateImageBehavior = false;
             this.lvVendedores.View = System.Windows.Forms.View.Details;
-            // 
-            // btnSerializar
-            // 
-            this.btnSerializar.Location = new System.Drawing.Point(624, 326);
-            this.btnSerializar.Name = "btnSerializar";
-            this.btnSerializar.Size = new System.Drawing.Size(153, 35);
-            this.btnSerializar.TabIndex = 10;
-            this.btnSerializar.Text = "SERIALIZAR";
-            this.btnSerializar.UseVisualStyleBackColor = true;
-            this.btnSerializar.Click += new System.EventHandler(this.btnSerializar_Click);
-            // 
-            // btnDeserializar
-            // 
-            this.btnDeserializar.Location = new System.Drawing.Point(799, 326);
-            this.btnDeserializar.Name = "btnDeserializar";
-            this.btnDeserializar.Size = new System.Drawing.Size(156, 35);
-            this.btnDeserializar.TabIndex = 11;
-            this.btnDeserializar.Text = "DESERIALIZAR";
-            this.btnDeserializar.UseVisualStyleBackColor = true;
-            this.btnDeserializar.Click += new System.EventHandler(this.btnDeserializar_Click);
+            this.lvVendedores.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvVendedores_MouseDoubleClick);
             // 
             // columnHeader1
             // 
@@ -229,6 +210,26 @@
             // 
             this.columnHeader5.Text = "División";
             this.columnHeader5.Width = 93;
+            // 
+            // btnSerializar
+            // 
+            this.btnSerializar.Location = new System.Drawing.Point(624, 326);
+            this.btnSerializar.Name = "btnSerializar";
+            this.btnSerializar.Size = new System.Drawing.Size(153, 35);
+            this.btnSerializar.TabIndex = 10;
+            this.btnSerializar.Text = "SERIALIZAR";
+            this.btnSerializar.UseVisualStyleBackColor = true;
+            this.btnSerializar.Click += new System.EventHandler(this.btnSerializar_Click);
+            // 
+            // btnDeserializar
+            // 
+            this.btnDeserializar.Location = new System.Drawing.Point(799, 326);
+            this.btnDeserializar.Name = "btnDeserializar";
+            this.btnDeserializar.Size = new System.Drawing.Size(156, 35);
+            this.btnDeserializar.TabIndex = 11;
+            this.btnDeserializar.Text = "DESERIALIZAR";
+            this.btnDeserializar.UseVisualStyleBackColor = true;
+            this.btnDeserializar.Click += new System.EventHandler(this.btnDeserializar_Click);
             // 
             // txtCodigo
             // 
@@ -260,7 +261,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmRegistroVendedores";
             this.Text = "Registro de Vendedores";
             this.ResumeLayout(false);
