@@ -64,6 +64,7 @@
             this.tsGuardar.Name = "tsGuardar";
             this.tsGuardar.Size = new System.Drawing.Size(81, 22);
             this.tsGuardar.Text = "GUARDAR";
+            this.tsGuardar.Click += new System.EventHandler(this.tsGuardar_Click);
             // 
             // tsComprimir
             // 
@@ -72,6 +73,7 @@
             this.tsComprimir.Name = "tsComprimir";
             this.tsComprimir.Size = new System.Drawing.Size(93, 22);
             this.tsComprimir.Text = "COMPRIMIR";
+            this.tsComprimir.Click += new System.EventHandler(this.tsComprimir_Click);
             // 
             // tsDescomprimir
             // 
@@ -80,6 +82,7 @@
             this.tsDescomprimir.Name = "tsDescomprimir";
             this.tsDescomprimir.Size = new System.Drawing.Size(113, 22);
             this.tsDescomprimir.Text = "DESCOMPRIMIR";
+            this.tsDescomprimir.Click += new System.EventHandler(this.tsDescomprimir_Click);
             // 
             // toolStripSeparator1
             // 
@@ -93,6 +96,7 @@
             this.tsAbrir.Name = "tsAbrir";
             this.tsAbrir.Size = new System.Drawing.Size(59, 22);
             this.tsAbrir.Text = "ABRIR";
+            this.tsAbrir.Click += new System.EventHandler(this.tsAbrir_Click);
             // 
             // tsSalir
             // 
@@ -101,6 +105,7 @@
             this.tsSalir.Name = "tsSalir";
             this.tsSalir.Size = new System.Drawing.Size(57, 22);
             this.tsSalir.Text = "SALIR";
+            this.tsSalir.Click += new System.EventHandler(this.tsSalir_Click);
             // 
             // tsNuevo
             // 
@@ -109,6 +114,7 @@
             this.tsNuevo.Name = "tsNuevo";
             this.tsNuevo.Size = new System.Drawing.Size(66, 22);
             this.tsNuevo.Text = "NUEVO";
+            this.tsNuevo.Click += new System.EventHandler(this.tsNuevo_Click);
             // 
             // txtEditor
             // 
