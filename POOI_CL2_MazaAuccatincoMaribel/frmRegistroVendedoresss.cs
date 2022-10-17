@@ -1,25 +1,25 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
+using System.Text; 
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.IO;
 using System.Runtime.Serialization.Json;
 
+
 namespace POOI_CL2_MazaAuccatincoMaribel
 {
-    public partial class frmRegistroVendedores : Form
+    public partial class frmRegistroVendedoresss : Form
     {
         int n = 0000; //variable global
         List<Vendedor> arrVendedores = new List<Vendedor>();
-
-
-        public frmRegistroVendedores()
+        public frmRegistroVendedoresss()
         {
             InitializeComponent();
             llenarCboDivision();
@@ -43,14 +43,12 @@ namespace POOI_CL2_MazaAuccatincoMaribel
             txtCodigo.Text = n.ToString("0000");
         }
 
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             //Obtener los valores del formulario
+            // Instanciamos de la clase Vendedor
             Vendedor objV = new Vendedor()
             {
-
-
                 ide_vend = int.Parse(txtCodigo.Text),
                 nombre_vend = txtNombre.Text,
                 direcc_vend = txtDireccion.Text,
@@ -58,12 +56,23 @@ namespace POOI_CL2_MazaAuccatincoMaribel
                 div_vend = cboDivision.Text,
             };
 
-
             //Enviamos el vendedor al arrayList 
             arrVendedores.Add(objV);
             listadoVendedores();
             limpiarInputs();
             generarCodigo();
+
+        }
+
+        void limpiarInputs() 
+        {
+            txtCodigo.Clear();
+            txtNombre.Clear();
+            txtDireccion.Clear();
+            dtFechaContrato.Value = DateTime.Now; 
+            cboDivision.SelectedIndex = -1;
+            txtNombre.Focus();
+            
         }
 
         void listadoVendedores()
@@ -71,7 +80,6 @@ namespace POOI_CL2_MazaAuccatincoMaribel
             lvVendedores.Items.Clear();
             foreach (Vendedor ven in arrVendedores)
             {
-
                 ListViewItem fila = new ListViewItem(ven.ide_vend.ToString());
                 fila.SubItems.Add(ven.nombre_vend);
                 fila.SubItems.Add(ven.direcc_vend);
@@ -79,6 +87,37 @@ namespace POOI_CL2_MazaAuccatincoMaribel
                 fila.SubItems.Add(ven.div_vend);
                 lvVendedores.Items.Add(fila);
             }
+        }
+
+        /// Modificar
+        private void lvVendedores_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewItem item = lvVendedores.GetItemAt(e.X, e.Y);
+
+            txtCodigo.Text = item.Text;
+            txtNombre.Text = item.SubItems[1].Text;
+            txtDireccion.Text = item.SubItems[2].Text;
+            dtFechaContrato.Value = DateTime.Parse(item.SubItems[3].Text);
+            cboDivision.Text = item.SubItems[4].Text;
+        }
+
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            foreach (Vendedor ven in arrVendedores)
+            {
+                if (ven.ide_vend == int.Parse(txtCodigo.Text))
+                {
+                    ven.nombre_vend = txtNombre.Text;
+                    ven.direcc_vend = txtDireccion.Text;
+                    ven.fecContrato_vend = dtFechaContrato.Value;
+                    ven.div_vend = cboDivision.Text; 
+                    break;
+                }
+            }
+            listadoVendedores();
+            limpiarInputs();
+           
         }
 
         private void btnSerializar_Click(object sender, EventArgs e)
@@ -89,8 +128,9 @@ namespace POOI_CL2_MazaAuccatincoMaribel
             {
                 using (FileStream fs = new FileStream(sv.FileName, FileMode.Create))
                 {
-                    DataContractJsonSerializer json = new DataContractJsonSerializer(typeof(List<Vendedor>));
-                    json.WriteObject(fs, arrVendedores);
+                        DataContractJsonSerializer json = new DataContractJsonSerializer(typeof(List<Vendedor>));
+                        json.WriteObject(fs, arrVendedores);
+   
                 }
             }
         }
@@ -103,57 +143,16 @@ namespace POOI_CL2_MazaAuccatincoMaribel
             {
                 using (FileStream fs = new FileStream(op.FileName, FileMode.Open))
                 {
-                    DataContractJsonSerializer json = new DataContractJsonSerializer(typeof(List<Vendedor>));
+                   
+                        DataContractJsonSerializer json = new DataContractJsonSerializer(typeof(List<Vendedor>));
                     arrVendedores = (List<Vendedor>)json.ReadObject(fs);
                     listadoVendedores();
+
+
                 }
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            foreach (Vendedor ven in arrVendedores)
-            {
-                if (ven.ide_vend == int.Parse(txtCodigo.Text))
-                {
-                    ven.nombre_vend = txtNombre.Text;
-                    ven.direcc_vend = txtDireccion.Text;
-                    ven.fecContrato_vend = dtFechaContrato.Value;
-                    ven.div_vend = cboDivision.Text;
-                    break;
-                }
-            }
-            listadoVendedores();
-            limpiarInputs();
-            btnAgregar.Enabled = true;
-            generarCodigo();
-
-        }
-
-        private void lvVendedores_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            ListViewItem item = lvVendedores.GetItemAt(e.X, e.Y);
-
-            txtCodigo.Text = item.Text;
-            txtNombre.Text = item.SubItems[1].Text;
-            txtDireccion.Text = item.SubItems[2].Text;
-            dtFechaContrato.Value = DateTime.Parse(item.SubItems[3].Text);
-            cboDivision.Text = item.SubItems[4].Text;
-
-            btnAgregar.Enabled = false;
-
-        }
-
-        void limpiarInputs()
-        {
-            txtCodigo.Clear();
-            txtNombre.Clear();
-            txtDireccion.Clear();
-            dtFechaContrato.Value = DateTime.Now;
-            cboDivision.SelectedIndex = -1;
-            //generarCodigo();
-            txtNombre.Focus();
-
-        }
+       
     }
 }

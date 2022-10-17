@@ -17,7 +17,9 @@ namespace POOI_CL2_MazaAuccatincoMaribel
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmComprimir()); //proyecto1
+            //Application.Run(new frmRegistroVendedoresss());   //proyecto---
             Application.Run(new frmRegistroVendedores());   //proyecto2
+
         }
     }
 }

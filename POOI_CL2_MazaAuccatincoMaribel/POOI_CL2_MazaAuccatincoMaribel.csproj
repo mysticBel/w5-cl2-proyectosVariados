@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Text.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,6 +60,12 @@
     <Compile Include="frmRegistroVendedores.Designer.cs">
       <DependentUpon>frmRegistroVendedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistroVendedoresss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistroVendedoresss.Designer.cs">
+      <DependentUpon>frmRegistroVendedoresss.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vendedor.cs" />
@@ -67,6 +74,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroVendedores.resx">
       <DependentUpon>frmRegistroVendedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroVendedoresss.resx">
+      <DependentUpon>frmRegistroVendedoresss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
