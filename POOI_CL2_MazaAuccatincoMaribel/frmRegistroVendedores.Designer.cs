@@ -38,8 +38,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.dtFechaContrato = new System.Windows.Forms.DateTimePicker();
             this.cboDivision = new System.Windows.Forms.ComboBox();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txtnombre = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lvVendedores = new System.Windows.Forms.ListView();
             this.btnSerializar = new System.Windows.Forms.Button();
@@ -49,6 +48,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -135,6 +135,7 @@
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // dtFechaContrato
             // 
@@ -146,25 +147,19 @@
             // 
             // cboDivision
             // 
+            this.cboDivision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDivision.FormattingEnabled = true;
             this.cboDivision.Location = new System.Drawing.Point(139, 256);
             this.cboDivision.Name = "cboDivision";
             this.cboDivision.Size = new System.Drawing.Size(288, 29);
             this.cboDivision.TabIndex = 5;
             // 
-            // txtCodigo
+            // txtNombre
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(139, 110);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(288, 29);
-            this.txtCodigo.TabIndex = 6;
-            // 
-            // txtnombre
-            // 
-            this.txtnombre.Location = new System.Drawing.Point(139, 146);
-            this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(288, 29);
-            this.txtnombre.TabIndex = 7;
+            this.txtNombre.Location = new System.Drawing.Point(139, 146);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(288, 29);
+            this.txtNombre.TabIndex = 7;
             // 
             // txtDireccion
             // 
@@ -198,6 +193,7 @@
             this.btnSerializar.TabIndex = 10;
             this.btnSerializar.Text = "SERIALIZAR";
             this.btnSerializar.UseVisualStyleBackColor = true;
+            this.btnSerializar.Click += new System.EventHandler(this.btnSerializar_Click);
             // 
             // btnDeserializar
             // 
@@ -207,6 +203,7 @@
             this.btnDeserializar.TabIndex = 11;
             this.btnDeserializar.Text = "DESERIALIZAR";
             this.btnDeserializar.UseVisualStyleBackColor = true;
+            this.btnDeserializar.Click += new System.EventHandler(this.btnDeserializar_Click);
             // 
             // columnHeader1
             // 
@@ -233,17 +230,25 @@
             this.columnHeader5.Text = "División";
             this.columnHeader5.Width = 93;
             // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Location = new System.Drawing.Point(138, 110);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(288, 29);
+            this.txtCodigo.TabIndex = 12;
+            // 
             // frmRegistroVendedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1187, 419);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.btnDeserializar);
             this.Controls.Add(this.btnSerializar);
             this.Controls.Add(this.lvVendedores);
             this.Controls.Add(this.txtDireccion);
-            this.Controls.Add(this.txtnombre);
-            this.Controls.Add(this.txtCodigo);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.cboDivision);
             this.Controls.Add(this.dtFechaContrato);
             this.Controls.Add(this.btnModificar);
@@ -275,8 +280,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.DateTimePicker dtFechaContrato;
         private System.Windows.Forms.ComboBox cboDivision;
-        private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.TextBox txtnombre;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.ListView lvVendedores;
         private System.Windows.Forms.ColumnHeader columnHeader1;
@@ -286,5 +290,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button btnSerializar;
         private System.Windows.Forms.Button btnDeserializar;
+        private System.Windows.Forms.TextBox txtCodigo;
     }
 }
