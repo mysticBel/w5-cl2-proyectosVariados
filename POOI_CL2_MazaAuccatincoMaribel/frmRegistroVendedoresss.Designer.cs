@@ -233,13 +233,12 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(138, 110);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(288, 29);
             this.txtCodigo.TabIndex = 12;
             // 
-            // frmRegistroVendedores
+            // frmRegistroVendedoresss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -262,7 +261,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "frmRegistroVendedores";
+            this.Name = "frmRegistroVendedoresss";
             this.Text = "Registro de Vendedores";
             this.ResumeLayout(false);
             this.PerformLayout();

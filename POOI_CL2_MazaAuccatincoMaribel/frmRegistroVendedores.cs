@@ -63,7 +63,7 @@ namespace POOI_CL2_MazaAuccatincoMaribel
             arrVendedores.Add(objV);
             listadoVendedores();
             limpiarInputs();
-            generarCodigo();
+            
         }
 
         void listadoVendedores()
@@ -123,11 +123,10 @@ namespace POOI_CL2_MazaAuccatincoMaribel
                     break;
                 }
             }
-            listadoVendedores();
-            limpiarInputs();
+            listadoVendedores();       
             btnAgregar.Enabled = true;
-            generarCodigo();
-
+            limpiarInputs();
+            
         }
 
         private void lvVendedores_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -150,10 +149,10 @@ namespace POOI_CL2_MazaAuccatincoMaribel
             txtNombre.Clear();
             txtDireccion.Clear();
             dtFechaContrato.Value = DateTime.Now;
-            cboDivision.SelectedIndex = -1;
-            //generarCodigo();
+            cboDivision.SelectedIndex = -1;     
             txtNombre.Focus();
-
+            
+            generarCodigo();
         }
     }
 }
